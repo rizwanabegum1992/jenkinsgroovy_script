@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    environment {
+        name = "Ramu"
+        version = "1.2"
+    }
+    stages {
+        stage ("Build"){
+            when{
+                anyOf{
+                    environment name: "name", value:"Ramu"
+                    environment name: "version", value:"1.1"
+                }
+            }
+            steps{
+                echo "${name} and ${version}"
+            }
+        }
+    }
+}
