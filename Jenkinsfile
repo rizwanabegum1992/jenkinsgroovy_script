@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Build') {
                     when {
-                          buildingTag()
+                          changelog '.*some_text*'
                     }
                     steps {
-                        echo 'Helo world building tag'
+                      echo 'hello world from changelog'
                     }
         }
     }
