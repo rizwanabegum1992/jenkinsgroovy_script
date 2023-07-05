@@ -1,14 +1,13 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
-                    when {
-                          changelog '.*some_text*'
-                    }
-                    steps {
-                      echo 'hello world from changelog'
-                    }
+        stage ('Build') {
+                when {
+                    changeRequest()
+                }
+          steps {
+                echo 'Hello World changing request'
+          }
         }
     }
 }
